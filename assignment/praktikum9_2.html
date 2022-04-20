@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Kedua Puluh Empat</title>
+</head>
+<body>
+<script lang="JavaScript">
+    var arrHari = new Array("Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jum'at", "Sabtu");
+    var arrBulan = new Array("Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember");
+    var arrWeton = new Array("Kliwon", "Legi", "Pahing", "Pon", "Wage");
+    var arrWeton1 = new Array("Wage", "Pon", "Pahing", "Legi", "Kliwon");
+    
+    var patokan = new Date();
+    var tglLahir = new Date(2002, 8, 28, 20, 20);
+    var tahun = patokan.getFullYear();
+    var bulan = patokan.getMonth();
+    var bulanlahir = tglLahir.getMonth(); //0-11
+    var tanggal = patokan.getDate();
+    var hari = patokan.getDay(); //0-6
+    var harilahir = tglLahir.getDay();
+    var umur = ((Date.parse(patokan)-Date.parse(tglLahir))/(1000*60*60*24))/365;
+
+    if(tglLahir <= patokan) {
+        var selisih = ((Date.parse(patokan)-Date.parse(tglLahir))/(1000*60*60*24));
+        var sisa;
+        if(selisih == 0) {
+            sisa = 0;
+            var xWeton = 0;
+        } else {
+            sisa = selisih % 5;
+            var xWeton = parseInt(sisa);
+        };
+        var sWeton = arrWeton1[xWeton + 1];
+    };
+
+    if(tglLahir > patokan) {
+        var selisih = ((Date.parse(tglLahir)-Date.parse(patokan))/(1000*60*60*24));
+        var sisa;
+        if(selisih == 0) {
+            sisa = 0;
+            var xWeton = 0;
+        } else {
+            sisa = selisih % 5;
+            var xWeton = parseInt(sisa);
+        };
+        var sWeton = arrWeton[xWeton];
+    };
+    
+    document.writeln("<pre>");
+    document.writeln("Tanggal          : ",tanggal,"/",bulan+1,"/",tahun);
+    document.writeln("Hari             : ",arrHari[hari]);
+    document.writeln("Bulan            : ",arrBulan[bulan]);
+    document.writeln("Tgl.Lahir        : ",tglLahir);
+    document.writeln("Umur             : ",umur);
+    document.writeln("Bulan Lahir      : ",arrBulan[bulanlahir]);
+    document.writeln("Hari Lahir       : ",arrHari[harilahir]);
+    document.writeln("Weton            : ",sWeton);
+    document.writeln("</pre>");
+</script>
+</body>
+</html>

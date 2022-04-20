@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Kedua Puluh Dua</title>
+</head>
+<body onload="javascript:display()">
+    <table border="1" id="dataTable" style="text-align: center;">
+        <tr>
+            <th>No</th>
+            <th>Decimal</th>
+            <th>Binary</th>
+            <th>Octal</th>
+            <th>Hex</th>
+        </tr>
+    </table>
+</body>
+<script lang="JavaScript">
+    function display() {
+        const table = document.querySelector('table');
+        let n1 = localStorage.getItem('n1');
+        let n2 = localStorage.getItem('n2');
+        let no = 0
+        if(localStorage.length != null) {
+            for(let i = parseInt(n1); i <= parseInt(n2); i++) {
+                let row = table.insertRow(-1)
+                let col1 = row.insertCell(0);
+                let col2 = row.insertCell(1);
+                let col3 = row.insertCell(2);
+                let col4 = row.insertCell(3);
+                let col5 = row.insertCell(4);
+                col1.innerText = no+=1;
+                col2.innerText = i.toString(10);
+                col3.innerText = i.toString(2);
+                col4.innerText = i.toString(8);
+                col5.innerText = i.toString(16);
+            }
+        } else {
+            alert('Data tidak ditemukan');
+        }
+    }
+</script> 
+</html>

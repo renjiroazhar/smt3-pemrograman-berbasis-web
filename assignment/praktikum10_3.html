@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Kedua Puluh Tujuh</title>
+</head>
+<body>
+    <h3>Rumus ABC</h3>
+    <label for="diketahui">Diketahui persamaan kuadrat adalah aX<sup>2</sup> + bX + c, masukkan:</label>
+    <form action="" method="post">
+        <table border="0">
+            <tr>
+                <td>
+                    <label for="nilaia">Nilai a</label>
+                </td>
+                <td>
+                    : <input type="text" name="nilaia" id="nilaia" size="10">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="nilaib">Nilai b</label>
+                </td>
+                <td>
+                    : <input type="text" name="nilaib" id="nilaib" size="10">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="nilaic">Nilai c</label>
+                </td>
+                <td>
+                    : <input type="text" name="nilaic" id="nilaic" size="10">
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    &nbsp;
+                    <button type="button" onclick="calc()">Hitung</button>
+                </td>
+            </tr>
+        </table>
+        <label for="mencariD" id="mencariD"></label><br>
+        <label for="hsldeterminan" id="hsldeterminan" value></label><br>
+        <label for="mencaripersamaan" id="mencaripersamaan"></label><br>
+        <label for="hslpersamaan" id="hslpersamaan"></label>
+    </form>
+</body>
+<script lang="JavaScript">
+    function calc() {
+        const a = Number(document.getElementById('nilaia').value);
+        const b = Number(document.getElementById('nilaib').value);
+        const c = Number(document.getElementById('nilaic').value);
+        if(a == "" || b == "" || c == "") {
+            alert("Lengkapi nilai a, b, atau c terlebih dahulu");
+        } else {    
+            const determinan = (b * b) - (4 * a * c);
+            document.getElementById('mencariD'). innerHTML = "<br>Mencari nilai determinan dengan rumus D = b<sup>2</sup> - 4ac maka,";
+            document.getElementById('hsldeterminan').innerHTML = "D = " + b + "<sup>2</sup>" + " - 4." + a + "." + c + " = " + determinan + "<br>";
+            document.getElementById('mencaripersamaan').innerHTML = "Kemudian didapatkan persamaan kuadratnya adalah"
+            if(determinan > 0) {
+                const persamaan1 = ((-b + (Math.sqrt(determinan))) / (2 * a)).toFixed(1);
+                const persamaan2 = ((-b - (Math.sqrt(determinan))) / (2 * a)).toFixed(1);
+                document.getElementById('hslpersamaan').innerHTML = "X<sub>1</sub> = (-b + &#8730;D) / (2.a)<br>X<sub>1</sub> = (-" + b + " + &#8730;" + determinan + ") / (2." + a + ") = " + persamaan1 + "<br>dan<br>" + "X<sub>2</sub> = (-b - &#8730;D) / (2.a)<br>X<sub>2</sub> = (-" + b + " - &#8730;" + determinan + ") / (2." + a + ") = " + persamaan2 + "<br>" + "HP = {" + persamaan1 + ", " + persamaan2 + "}";
+            } else if(determinan == 0) {
+                const persamaan1 = (-b / (2 * a)).toFixed(1);
+                const persamaan2 = persamaan1;
+                document.getElementById('hslpersamaan').innerHTML = "X<sub>1</sub> = X<sub>2</sub> =  -b / (2. a)<br>X<sub>1</sub> = X<sub>2</sub> =  -" + b + " / (2." + a + ") = " + persamaan1 + "<br>" + "HP = {" + persamaan1 + ", " + persamaan2 + "}";
+            } else {
+                const persamaan1_1 = (-b / (2 * a)).toFixed(1);
+                const persamaan1_2 = ((Math.sqrt(-determinan)) / (2 * a)).toFixed(1) + "i";
+                const persamaan2_1 = persamaan1_1
+                const persamaan2_2 = persamaan1_2
+                document.getElementById('hslpersamaan').innerHTML = "X<sub>1</sub> =  (-b + / (2.a + )) + ((&#8730;-D) / (2.a)).i<br>X<sub>1</sub> =  (-" + b + " / (2." + a + ")) + ((&#8730;" + determinan + ") / (2." + a + ")) = " + persamaan1_1 + " + " + persamaan1_2 + "<br>dan<br>" + "X<sub>1</sub> =  (-b + / (2.a + )) - ((&#8730;-D) / (2.a)).i" + "<br>" + "X<sub>2</sub> =  (-" + b + " / (2." + a + ")) - ((&#8730;" + determinan + ") / (2." + a + ")) = " + persamaan2_1 + " - " + persamaan2_2 + "<br>" + "HP = {" + persamaan1_1 + " + " + persamaan1_2 + ", " + persamaan2_1 + " - " + persamaan2_2 + "}";
+            };
+        };
+    };
+</script> 
+</html>

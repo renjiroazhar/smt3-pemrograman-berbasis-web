@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="assets/js/jquery-3.6.0.js"></script>
+    <title>Web Kedua Puluh Sembilan</title>
+</head>
+<body>
+    <h3>Hitung Nilai</h3>
+    <form action="" method="post">
+        <table border="0">
+            <tr>
+                <td>
+                    <label for="nilaitugas">Nilai Tugas (20%)</label>
+                </td>
+                <td>
+                    : <input type="text" name="ntugas" id="ntugas" size="10">
+                </td>
+                <td id="cetakntugas" style="text-align: right;"></td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="nilaiuts">Nilai UTS (35%)</label>
+                </td>
+                <td>
+                    : <input type="text" name="nuts" id="nuts" size="10">
+                </td>
+                <td id="cetaknuts" style="text-align: right;"></td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="nilaiuas">Nilai UAS (45%)</label>
+                </td>
+                <td>
+                    : <input type="text" name="nuas" id="nuas" size="10">
+                </td>
+                <td id="cetaknuas" style="text-align: right;"></td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="nilaiakhir">Nilai Akhir</label>
+                </td>
+                <td>
+                    : <input disabled type="text" name="hasil" id="hasil" size="10">
+                </td>
+                <td id="cetakhasil" style="text-align: right;"></td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="nilaihuruf">Nilai Huruf</label>
+                </td>
+                <td>
+                    : <input disabled type="text" name="hasilhuruf" id="hasilhuruf" size="5">
+                </td>
+                <td id="cetakhasilhuruf" style="text-align: right;"></td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="predikat">Predikat</label>
+                </td>
+                <td>
+                    : <input disabled type="text" name="hasilpredikat" id="hasilpredikat" size="10">
+                </td>
+                <td id="cetakhasilpredikat" style="text-align: right;"></td>
+            </tr>
+            <tr>
+                <td>
+                    <button id="hitung" type="button">Hitung</button>
+                </td>
+                <td>
+                    &nbsp;
+                    <button type="reset">Reset</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+<script lang="text/javascript">
+    $(document).ready(function() {
+        $('#hitung').click(function() {
+            const xhttp = new XMLHttpRequest();
+            const ntugas = $('#ntugas').val();
+            const nuts = $('#nuts').val();
+            const nuas = $('#nuas').val();
+            var hsl = (20 * (Number(ntugas) / 100)) + (35 * (Number(nuts) / 100)) + (45 * (Number(nuas) / 100));
+            if (hsl > 84 && hsl < 101) {
+                var hslhuruf = "A";
+                var hslpredikat = "Apik";
+            } else if (hsl > 79 && hsl < 85) {
+                var hslhuruf = "AB";
+                var hslpredikat = "Apik Baik";           
+            } else if (hsl > 69 && hsl < 80) {
+                var hslhuruf = "B";
+                var hslpredikat = "Baik";
+            } else if (hsl > 64 && hsl < 70) {
+                var hslhuruf = "BC";
+                var hslpredikat = "Baik Cukup";
+            } else if (hsl > 59 && hsl < 65) {
+                var hslhuruf = "C";
+                var hslpredikat = "Cukup";
+            } else if (hsl > 39 && hsl < 60) {
+                var hslhuruf = "D";
+                var hslpredikat = "Dableg";
+            } else if (hsl > -0.1 && hsl < 40) {
+                var hslhuruf = "E";
+                var hslpredikat = "Elek";
+            } else {
+                var hsl = "Nilai tidak ada"; 
+                var hslhuruf = "-";
+                var hslpredikat = "Nilai tidak ada";   
+            };
+            $('#hasil').val(hsl)
+            $('#hasilhuruf').val(hslhuruf);
+            $('#hasilpredikat').val(hslpredikat);
+            xhttp.onload = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById('cetakntugas').innerHTML = "<b>" + ntugas + "</b>";
+                    document.getElementById('cetaknuts').innerHTML = "<b>" + nuts + "</b>";
+                    document.getElementById('cetaknuas').innerHTML = "<b>" + nuas + "</b>";
+                    document.getElementById('cetakhasil').innerHTML = "<b>" + hsl + "</b>";
+                    document.getElementById('cetakhasilhuruf').innerHTML = "<b>" + hslhuruf + "</b>";
+                    document.getElementById('cetakhasilpredikat').innerHTML = "<b>" + hslpredikat + "</b>";
+                };
+            };
+            xhttp.open("GET", "");
+            xhttp.send();
+        });
+    });
+</script> 
+</html>

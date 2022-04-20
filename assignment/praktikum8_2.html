@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Kedua Puluh</title>
+</head>
+<body>
+    <h3>Hitung Nilai</h3>
+    <form action="" method="post">
+        <table border="0">
+            <tr>
+                <td>
+                    <label for="nilaitugas">Nilai Tugas (20%)</label>
+                </td>
+                <td>
+                    : <input type="text" name="ntugas" id="ntugas" size="20">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="nilaiuts">Nilai UTS (35%)</label>
+                </td>
+                <td>
+                    : <input type="text" name="nuts" id="nuts" size="20">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="nilaiuas">Nilai UAS (45%)</label>
+                </td>
+                <td>
+                    : <input type="text" name="nuas" id="nuas" size="20">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="nilaiakhir">Nilai Akhir</label>
+                </td>
+                <td>
+                    : <input type="text" name="hasil" id="hasil" size="20">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button type="button" onclick="calc()">Hitung</button>
+                </td>
+                <td>
+                    &nbsp;
+                    <button type="reset">Reset</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+<script lang="JavaScript">
+    function calc() {
+        const ntugas = document.getElementById('ntugas').value;
+        const nuts = document.getElementById('nuts').value;
+        const nuas = document.getElementById('nuas').value;
+        const hsl = (20 * (parseInt(ntugas) / 100)) + (35 * (parseInt(nuts) / 100)) + (45 * (parseInt(nuas) / 100));
+        document.getElementById('hasil').value = hsl;
+    }
+</script> 
+</html>

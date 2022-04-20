@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Kedua Puluh Tiga</title>
+</head>
+<body>
+    <form action="" method="post">
+        <table border="0">
+            <tr>
+                <td>
+                    <label for="temperature">Temperature</label>
+                </td>
+                <td>
+                    <input type="text" name="temperature" id="temperature" size="20">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" name="option" id="CelcToRe" value="CelcToRe">
+                    <label for="CelciusToReamur">Celcius to Reamur</label>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" name="option" id="CelcToFar" value="CelcToFar">
+                    <label for="CelciusToFarenheit">Celcius to Farenheit</label>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" name="option" id="CelcToKel" value="CelcToKel">
+                    <label for="CelciusToKelvin">Celcius to Kelvin</label>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" name="option" id="ReToCelc" value="ReToCelc">
+                    <label for="ReamurToCelcius">Reamur to Celcius</label>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" name="option" id="ReToFar" value="ReToFar">
+                    <label for="ReamurToFarenheit">Reamur to Farenheit</label>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" name="option" id="ReToKel" value="ReToKel">
+                    <label for="ReamurToKelvin">Reamur to Kelvin</label>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" name="option" id="FarToCelc" value="FarToCelc">
+                    <label for="FarenheitToCelcius">Farenheit to Celcius</label>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" name="option" id="FarToRe" value="FarToRe">
+                    <label for="FarenheitToReamur">Farenheit to Reamur</label>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" name="option" id="KelToCelc" value="KelToCelc">
+                    <label for="KelvinToCelcius">Kelvin to Celcius</label>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" name="option" id="KelToRe" value="KelToRe">
+                    <label for="KelvinToReamur">Kelvin to Reamur</label>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>
+                   Result
+                </td>
+                <td>
+                    <input disabled type="text" name="result" id="result" size="20">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button type="button" onclick="convert()">Convert</button>
+                </td>
+                <td></td>
+            </tr>
+        </table>
+    </form>
+</body>
+<script lang="JavaScript">
+    function convert() {
+        const temperature = document.getElementById('temperature').value;
+        const convertion = document.getElementsByName('option');
+        for(i = 0; i < convertion.length; i++) {
+            if(convertion[i].checked) {
+                if(convertion[i].value == "CelcToRe") {
+                    var result = (4 / 5) * parseFloat(temperature);
+                } else if(convertion[i].value == "CelcToFar") {
+                    var result = ((9 / 5) * parseFloat(temperature)) + 32;
+                } else if(convertion[i].value == "CelcToKel") {
+                    var result = parseFloat(temperature) + 273;
+                } else if(convertion[i].value == "ReToCelc") {
+                    var result = (5 / 4) * parseFloat(temperature);
+                } else if(convertion[i].value == "ReToFar") {
+                    var result = ((9 / 4) * parseFloat(temperature)) + 32;
+                } else if(convertion[i].value == "ReToKel") {
+                    var result = ((5 / 4) * parseFloat(temperature)) + 273;
+                } else if(convertion[i].value == "FarToCelc") {
+                    var result = (5 / 9) * (parseFloat(temperature) - 32);
+                } else if(convertion[i].value == "FarToRe") {
+                    var result = (4 / 9) * (parseFloat(temperature) - 32);
+                } else if(convertion[i].value == "KelToCelc") {
+                    var result = parseFloat(temperature) - 273;
+                } else if(convertion[i].value == "KelToRe") {
+                    var result = (4 / 5) * (parseFloat(temperature) - 273);
+                } else {
+                    alert("Choose the convertion first");
+                }
+            }
+        }
+        document.getElementById('result').value = result;
+    }
+</script> 
+</html>

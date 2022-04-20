@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Web Kelima Belas</title>
+        <link rel="stylesheet" href="praktikum6_2.css">
+    </head>
+    <body>
+        <header>
+            <h2 id="mainheader">Pasar Online</h2>
+            <p id="mainmotto">
+                <i>Tempat nyaman berbelanja</i>
+            </p>
+        </header>  
+        <div class="topnav">
+            <a class="active"  href="praktikum6_2.html">Beranda</a>
+            <a href="praktikum6_3.html">Tentang Kami</a>
+            <a href="#">Produk</a>
+            <a href="#">Belanja</a>
+            <a href="#">Bantuan</a>
+            <a href="#">Buku Tamu</a>
+            <div class="search-container" style="float: right;">
+                <form action="/action_page.php">
+                <input type="text" placeholder="Search.." name="search">
+                <button type="submit">Go</button>
+                </form>
+            </div>
+        </div>
+        <div class=container>
+            <div class=column>
+                <div class="main">
+                    <h3>PRODUK FESYEN 2ND</h3>
+                    <img src="produk1.jpg" style="width: 208px; height: 208px;">
+                    <img src="produk2.jpg" style="width: 208px; height: 208px;">                      
+                    <img src="produk3.jpg" style="width: 208px; height: 208px;">
+                    <img src="produk4.jpg" style="width: 208px; height: 208px;">                
+                    <h3 id="discountheader">Simulasi Order Barang</h3>
+                    <script type="text/javascript">
+                        function calculate() {
+                            var price=0, accPrice=0, discount=0, afterDiscount=0, amount=0, discountAmount=0;
+                                price = Number(document.discountCalculator.price.value);
+                                discount = Number(document.discountCalculator.discount.value);
+                                amount = Number(document.discountCalculator.amount.value);
+                            accPrice= price*amount;
+                            afterDiscount=accPrice - ( accPrice*discount/100 );
+                            discountAmount=accPrice - afterDiscount;
+                            document.discountCalculator.price.value=price.toFixed(2);
+                            document.discountCalculator.discount.value=discount.toFixed(2);
+                            document.discountCalculator.afterDiscount.value=afterDiscount.toFixed(2);
+                            document.discountCalculator.discountAmount.value=discountAmount.toFixed(2);
+                        }
+                    </script>
+                    <form name="discountCalculator" action="action_page.php" class="wrapper">
+                        <div class="row">
+                            <div class="col-25">
+                                <label><span>Harga</span>:</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" id="price" placeholder="Harga barang"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                                <label><span>Jumlah</span>:</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" id="amount" placeholder="Jumlah barang"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                                <label><span>Diskon</span>:</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" id="discount" placeholder="Diskon"/>%
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                                <label><span>Jml. Diskon</span>:</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" id="discountAmount" placeholder="Jumlah diskon" readonly/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                                <label><span>Total</span>:</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" id="afterDiscount" placeholder="Total" readonly/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <input type="button" value="Hitung" onclick="calculate()">
+                            <input type="reset" value="Reset">
+                        </div>                           
+                    </form>
+                </div>
+            </div>
+            <div class="column">
+                <div class="menu">
+                    <a1>
+                        <h3 id="nobold">Main Menu</h3>
+                        <ul id="myul">
+                            <li><a href="#">Produk</a></li>
+                            <li><a href="#">Belanja</a></li>
+                            <li><a href="#">Kontak</a></li>
+                            <li><a href="#">Bantuan</a></li>
+                            <li><a href="#">Berita</a></li>
+                            <li><a href="#">Buku Tamu</a></li>
+                            <li><a href="#">Tips</a></li>
+                            <li><a href="#">Pelanggan</a></li>
+                        </ul>
+                    </a1>
+                    <a1>
+                        <h3 id="nobold">Sponsor</h3>
+                        <img src="csslogo.jpg" style="margin: 10px 0 0 60px;">
+                    </a1>
+                    <a1>
+                        <h3 id="nobold">Links</h3>
+                        <ul>
+                            <li><a href="#">Dian Nuswantoro University</a></li>
+                            <li><a href="#">Ajib Susanto Blogs</a></li>
+                            <li><a href="#">Jawa Pos</a></li>
+                            <li><a href="#">Detik</a></li>
+                            <li><a href="#">Tentang Kami</a></li>
+                        </ul>
+                    </a1>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p style="text-align:center;font-size: 15px" colspan="2">
+                Copyright &copy; 2021 A11.2020.12428 Renjiro Azhar Pramono, 
+                All Rights Reserved.
+            </p>
+        </div>
+    </body>
+</html> 

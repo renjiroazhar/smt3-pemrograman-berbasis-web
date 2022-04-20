@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Kesembilan Belas</title>
+</head>
+<body>
+    <h3>Kalkulator</h3>
+    <form action="" method="post">
+        <table border="0">
+            <tr>
+                <td>
+                    <label for="nilai1">Nilai 1</label>
+                </td>
+                <td>
+                    : <input type="text" name="n1" id="n1" size="10">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="nilai2">Nilai 2</label>
+                </td>
+                <td>
+                    : <input type="text" name="n1" id="n2" size="10">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="hasil">Hasil</label>
+                </td>
+                <td>
+                    : <input type="text" name="hasil" id="hasil" size="10">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button type="button" onclick="plus()">+</button>
+                    <button type="button" onclick="min()">-</button>
+                    <button type="button" onclick="times()">*</button>
+                    <button type="button" onclick="div()">/</button>
+                </td>
+                <td>
+                    &nbsp;
+                    <input type="reset" value="Reset">
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+<script lang="JavaScript">
+    function plus() {
+        const n1 = document.getElementById('n1').value;
+        const n2 = document.getElementById('n2').value;
+        const hsl = parseInt(n1) + parseInt(n2);
+        document.getElementById('hasil').value = hsl;
+    }
+    
+    function min() {
+        const n1 = document.getElementById('n1').value;
+        const n2 = document.getElementById('n2').value;
+        const hsl = parseInt(n1) - parseInt(n2);
+        document.getElementById('hasil').value = hsl;
+    }
+    
+    function times() {
+        const n1 = document.getElementById('n1').value;
+        const n2 = document.getElementById('n2').value;
+        const hsl = parseInt(n1) * parseInt(n2);
+        document.getElementById('hasil').value = hsl;
+    }
+
+    function div() {
+        const n1 = document.getElementById('n1').value;
+        const n2 = document.getElementById('n2').value;
+        const hsl = parseInt(n1) / parseInt(n2);
+        document.getElementById('hasil').value = hsl;
+    }
+</script> 
+</html>

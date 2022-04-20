@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Kedua Puluh Enam</title>
+</head>
+<body>
+    <h3>Simulasi</h3>
+    <form action="" method="post">
+        <table border="0">
+            <tr>
+                <td>
+                    <label for="harga">Harga</label>
+                </td>
+                <td>
+                    : <input type="text" name="harga" id="harga" size="10">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="jumlah">Jumlah</label>
+                </td>
+                <td>
+                    : <input type="text" name="jumlah" id="jumlah" size="10">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="diskon">Diskon</label>
+                </td>
+                <td>
+                    : <input type="text" name="diskon" id="diskon" size="10">%
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="jmldiskon">Jml. Diskon</label>
+                </td>
+                <td>
+                    : <input type="text" name="jmldiskon" id="jmldiskon" size="10">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="total">Total</label>
+                </td>
+                <td>
+                    : <input type="text" name="total" id="total" size="10">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button type="button" onclick="calc()">Hitung</button>
+                </td>
+                <td>
+                    &nbsp;
+                    <button type="reset">Reset</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+<script lang="JavaScript">
+    function calc() {
+        const harga = document.getElementById('harga').value;
+        const jumlah = document.getElementById('jumlah').value;
+        const diskon = document.getElementById('diskon').value;
+        const jmldsikon = (parseInt(harga) * parseInt(jumlah)) * (parseInt(diskon) / 100);
+        const total = (parseInt(harga) * parseInt(jumlah)) - jmldsikon;
+        document.getElementById('jmldiskon').value = jmldsikon;
+        document.getElementById('total').value = total;
+    }
+</script> 
+</html>

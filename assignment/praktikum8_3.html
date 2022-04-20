@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Kedua Puluh Satu</title>
+</head>
+<body>
+    <h3>Hitung Nilai</h3>
+    <form action="" method="post">
+        <table border="0">
+            <tr>
+                <td>
+                    <label for="nilaitugas">Nilai Tugas (20%)</label>
+                </td>
+                <td>
+                    : <input type="text" name="ntugas" id="ntugas" size="20">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="nilaiuts">Nilai UTS (35%)</label>
+                </td>
+                <td>
+                    : <input type="text" name="nuts" id="nuts" size="20">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="nilaiuas">Nilai UAS (45%)</label>
+                </td>
+                <td>
+                    : <input type="text" name="nuas" id="nuas" size="20">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="nilaiakhir">Nilai Akhir</label>
+                </td>
+                <td>
+                    : <input disabled type="text" name="hasil" id="hasil" size="20">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="nilaihuruf">Nilai Hurf</label>
+                </td>
+                <td>
+                    : <input disabled type="text" name="hasilhuruf" id="hasilhuruf" size="20">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="predikat">Predikat</label>
+                </td>
+                <td>
+                    : <input disabled type="text" name="hasilpredikat" id="hasilpredikat" size="20">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button type="button" onclick="calc()">Hitung</button>
+                </td>
+                <td>
+                    &nbsp;
+                    <button type="reset">Reset</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+<script lang="JavaScript">
+    function calc() {
+        const ntugas = document.getElementById('ntugas').value;
+        const nuts = document.getElementById('nuts').value;
+        const nuas = document.getElementById('nuas').value;
+        const hsl = (20 * (parseInt(ntugas) / 100)) + (35 * (parseInt(nuts) / 100)) + (45 * (parseInt(nuas) / 100));
+        document.getElementById('hasil').value = hsl;
+        if (hsl > 84 && hsl < 101) {
+            var hslhuruf = "A";
+            var hslpredikat = "Apik";
+        } else if (hsl > 79 && hsl < 85) {
+            var hslhuruf = "AB";
+            var hslpredikat = "Apik Baik";           
+        } else if (hsl > 69 && hsl < 80) {
+            var hslhuruf = "B";
+            var hslpredikat = "Baik";
+        } else if (hsl > 64 && hsl < 70) {
+            var hslhuruf = "BC";
+            var hslpredikat = "Baik Cukup";
+        } else if (hsl > 59 && hsl < 65) {
+            var hslhuruf = "C";
+            var hslpredikat = "Cukup";
+        } else if (hsl > 39 && hsl < 60) {
+            var hslhuruf = "D";
+            var hslpredikat = "Dableg";
+        } else if (hsl > -1 && hsl < 40) {
+            var hslhuruf = "E";
+            var hslpredikat = "Elek";
+        } else {
+            var hslhuruf = "Niai tidak ada";
+            var hslpredikat = "Niai tidak ada";   
+        };
+        document.getElementById('hasilhuruf').value = hslhuruf;
+        document.getElementById('hasilpredikat').value = hslpredikat;
+    }
+</script> 
+</html>

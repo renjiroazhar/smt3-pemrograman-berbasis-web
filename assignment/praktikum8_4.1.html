@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Kedua Puluh Dua</title>
+</head>
+<body>
+    <h3>Tabel Konversi Bilangan</h3>
+    <form action="" method="post">
+        <table border="0">
+            <tr>
+                <td>
+                    <label for="nilai1">Nilai 1</label>
+                </td>
+                <td>
+                    : <input type="text" name="n1" id="n1" size="10">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="nilai2">Nilai 2</label>
+                </td>
+                <td>
+                    : <input type="text" name="n2" id="n2" size="10">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button type="button" onclick="save()">Proses</button>
+                </td>
+                <td>
+                    &nbsp;
+                    <button type="reset">Reset</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+<script lang="JavaScript">
+    function save() {
+        const n1 = document.getElementById('n1').value;
+        const n2 = document.getElementById('n2').value;
+        localStorage.setItem('n1', parseInt(n1));
+        localStorage.setItem('n2', parseInt(n2));
+        location.href = 'praktikum8_4.2.html';
+    }
+</script> 
+</html>
